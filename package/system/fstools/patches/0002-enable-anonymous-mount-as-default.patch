@@ -1,0 +1,11 @@
+--- a/block.c
++++ b/block.c
+@@ -1589,7 +1589,7 @@ static int main_detect(int argc, char **
+ 	cache_load(0);
+ 	printf("config 'global'\n");
+ 	printf("\toption\tanon_swap\t'0'\n");
+-	printf("\toption\tanon_mount\t'0'\n");
++	printf("\toption\tanon_mount\t'1'\n");
+ 	printf("\toption\tauto_swap\t'1'\n");
+ 	printf("\toption\tauto_mount\t'1'\n");
+ 	printf("\toption\tdelay_root\t'5'\n");

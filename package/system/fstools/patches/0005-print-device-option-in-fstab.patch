@@ -1,0 +1,11 @@
+--- a/block.c
++++ b/block.c
+@@ -546,7 +546,7 @@ static int print_block_uci(struct probe_
+ 	}
+ 	if (pr->uuid)
+ 		printf("\toption\tuuid\t'%s'\n", pr->uuid);
+-	else
++	if (pr->dev)
+ 		printf("\toption\tdevice\t'%s'\n", pr->dev);
+ 	printf("\toption\tenabled\t'0'\n\n");
+ 
