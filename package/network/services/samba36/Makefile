@@ -156,7 +156,7 @@ define Package/samba36-server/install
 	$(INSTALL_DIR) $(1)/etc/config
 	$(INSTALL_CONF) ./files/samba.config $(1)/etc/config/samba
 	$(INSTALL_DIR) $(1)/etc/samba
-	$(INSTALL_DATA) ./files/smb.conf.template $(1)/etc/samba
+	$(INSTALL_CONF) ./files/smb.conf.template $(1)/etc/samba
 	$(INSTALL_DATA) $(PKG_BUILD_DIR)/codepages/lowcase.dat $(1)/etc/samba
 	$(INSTALL_DATA) $(PKG_BUILD_DIR)/codepages/upcase.dat $(1)/etc/samba
 	$(INSTALL_DATA) $(PKG_BUILD_DIR)/codepages/valid.dat $(1)/etc/samba
@@ -171,9 +171,9 @@ endef
 
 define Package/samba36-hotplug/install
 	$(INSTALL_DIR) $(1)/lib/samba
-	$(INSTALL_DATA) ./files/lib/samba.sh $(1)/lib/samba/samba.sh
+	$(INSTALL_CONF) ./files/lib/samba.sh $(1)/lib/samba/samba.sh
 	$(INSTALL_DIR) $(1)/etc/hotplug.d/block
-	$(INSTALL_DATA) ./files/samba.hotplug $(1)/etc/hotplug.d/block/60-samba
+	$(INSTALL_CONF) ./files/samba.hotplug $(1)/etc/hotplug.d/block/60-samba
 endef
 
 define Package/samba36-client/install
