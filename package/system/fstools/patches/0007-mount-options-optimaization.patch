@@ -1,0 +1,13 @@
+--- a/block.c
++++ b/block.c
+@@ -887,8 +887,8 @@ static int handle_mount(const char *sour
+ 	    err = -1;
+ 	    errno = ENODEV;
+ 	} else
+-	    err = mount(source, target, fstype, m ? m->flags : 0,
+-	            (m && m->options) ? m->options : "");
++	    err = mount(source, target, fstype, m ? m->flags : (~MS_RDONLY | MS_NOATIME | MS_NODIRATIME),
++	            (m && m->options) ? m->options : "rw,noatime,nodiratime");
+ 
+ 	/* Requested file system type is not available in kernel,
+ 	   attempt to call mount helper. */

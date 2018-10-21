@@ -1,0 +1,24 @@
+
+From: Rosy Song <rosysong@rosinson.com>
+Subject: [OpenWrt-Devel] [PATCH] fstools: mount ntfs with ntfs-3g utility if it exists
+
+This patch can mount ntfs with fuseblk fs type and make the deivces to be
+mounted writable.
+
+--- a/block.c
++++ b/block.c
+@@ -881,7 +881,13 @@ static int handle_mount(const char *sour
+ 	size_t mount_opts_len;
+ 	char *mount_opts = NULL, *ptr;
+ 
+-	err = mount(source, target, fstype, m ? m->flags : 0,
++	/* For writable accessiblity, try to mount ntfs filesystem with
++	    ntfs-3g utility */
++	if (!strcmp(fstype, "ntfs") && !access("/sbin/mount.ntfs-3g", X_OK)) {
++	    err = -1;
++	    errno = ENODEV;
++	} else
++	    err = mount(source, target, fstype, m ? m->flags : 0,
+ 	            (m && m->options) ? m->options : "");
+ 
+ 	/* Requested file system type is not available in kernel,
