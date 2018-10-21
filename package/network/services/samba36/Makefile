@@ -106,6 +106,7 @@ CONFIGURE_VARS += \
 CONFIGURE_ARGS += \
 	--exec-prefix=/usr \
 	--prefix=/ \
+	--enable-pthreadpool \
 	--disable-avahi \
 	--disable-cups \
 	--disable-external-libtalloc \
