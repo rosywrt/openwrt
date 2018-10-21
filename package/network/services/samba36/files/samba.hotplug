@@ -5,7 +5,7 @@ samba_dev_filter $DEVNAME
 
 # Wait until system init done
 while true; do
-    [ $(readlink /overlay/.fs_state) -eq 2 ] && break
+	[ $(readlink /overlay/.fs_state) -eq 2 ] && break
 done
 
 config_load samba
