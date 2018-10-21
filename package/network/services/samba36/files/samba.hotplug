@@ -3,6 +3,11 @@
 samba_dev_filter $DEVNAME
 [ "$FLAG_DEV_TYPE" = "not-mtd" ]  || exit
 
+# Wait until system init done
+while true; do
+    [ $(readlink /overlay/.fs_state) -eq 2 ] && break
+done
+
 config_load samba
 case $ACTION in
 	add) samba_add_section $DEVNAME;;
