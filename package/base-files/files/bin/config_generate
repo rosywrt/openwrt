@@ -2,6 +2,7 @@
 
 CFG=/etc/board.json
 
+. /lib/functions/system.sh
 . /usr/share/libubox/jshn.sh
 
 [ -s $CFG ] || /bin/board_detect || exit 1
@@ -240,10 +241,24 @@ generate_switch() {
 
 
 generate_static_system() {
+	local eui name ifname
+
+	for iface in $(ls /sys/class/net 2>/dev/null); do
+		case "$iface" in
+			br-lan | eth*)
+				ifname="$iface"
+				break;;
+			*) continue;;
+		esac
+	done
+	[ -n "$ifname" ] && \
+		eui=$(macaddr_geteui $(cat /sys/class/net/${ifname}/address))
+	[ -n "$eui" ] && name="OpenWrt_$eui"
+
 	uci -q batch <<-EOF
 		delete system.@system[0]
 		add system system
-		set system.@system[-1].hostname='OpenWrt'
+		set system.@system[-1].hostname='${name:-OpenWrt}'
 		set system.@system[-1].timezone='UTC'
 		set system.@system[-1].ttylogin='0'
 		set system.@system[-1].log_size='64'
