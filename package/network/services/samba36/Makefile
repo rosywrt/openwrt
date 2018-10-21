@@ -85,6 +85,7 @@ CONFIGURE_VARS += \
 	libreplace_cv_HAVE_C99_VSNPRINTF=yes \
 	libreplace_cv_HAVE_GETADDRINFO=yes \
 	libreplace_cv_HAVE_IFACE_IFCONF=yes \
+	$(if $(CONFIG_IPV6),,libreplace_cv_HAVE_IPV6=no libreplace_cv_HAVE_IPV6_V6ONLY=no) \
 	LINUX_LFS_SUPPORT=yes \
 	samba_cv_CC_NEGATIVE_ENUM_VALUES=yes \
 	samba_cv_HAVE_GETTIMEOFDAY_TZ=yes \
