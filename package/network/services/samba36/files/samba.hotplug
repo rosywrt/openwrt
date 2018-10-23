@@ -14,3 +14,4 @@ case $ACTION in
 	remove) samba_delete_section $DEVNAME;;
 esac
 uci commit samba
+/etc/init.samba restart
