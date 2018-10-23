@@ -7,7 +7,7 @@ mounted writable.
 
 --- a/block.c
 +++ b/block.c
-@@ -881,7 +881,13 @@ static int handle_mount(const char *sour
+@@ -879,7 +879,13 @@ static int handle_mount(const char *sour
  	size_t mount_opts_len;
  	char *mount_opts = NULL, *ptr;
  
