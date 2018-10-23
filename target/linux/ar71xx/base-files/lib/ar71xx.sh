@@ -1136,6 +1136,9 @@ ar71xx_board_detect() {
 	*"RouterStation Pro")
 		name="routerstation-pro"
 		;;
+	*"ROSINSON RS-WR818")
+		name="rs-wr818"
+		;;
 	*"RUT900")
 		name="rut900"
 		;;

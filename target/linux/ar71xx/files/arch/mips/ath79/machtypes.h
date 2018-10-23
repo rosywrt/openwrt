@@ -229,6 +229,7 @@ enum ath79_mach_type {
 	ATH79_MACH_RE355,			/* TP-LINK RE355 */
 	ATH79_MACH_RE450,			/* TP-LINK RE450 */
 	ATH79_MACH_RME_EG200,			/* eTactica EG200 */
+	ATH79_MACH_RS_WR818,			/* ROSINSON RS-WR818 */
 	ATH79_MACH_RUT9XX,			/* Teltonika RUT900 series */
 	ATH79_MACH_RW2458N,			/* Redwave RW2458N */
 	ATH79_MACH_SC1750,			/* Abicom SC1750 */

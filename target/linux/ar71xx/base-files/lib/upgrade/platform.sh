@@ -652,6 +652,7 @@ platform_check_image() {
 
 		return 0
 		;;
+	rs-wr818|\
 	tube2h)
 		alfa_check_image "$1" && return 0
 		return 1

@@ -397,6 +397,9 @@ get_status_led() {
 	rocket-m-ti)
 		status_led="ubnt:green:link6"
 		;;
+	rs-wr818)
+		status_led="wr818:red:status"
+		;;
 	routerstation|\
 	routerstation-pro)
 		status_led="ubnt:green:rf"

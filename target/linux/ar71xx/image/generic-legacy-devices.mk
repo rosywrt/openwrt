@@ -368,6 +368,12 @@ define LegacyDevice/MZKW04NU
 endef
 LEGACY_DEVICES += MZKW04NU
 
+define LegacyDevice/RS_WR818_16M
+  DEVICE_TITLE := ROSINSON RS-WR818 board (16MB flash)
+  DEVICE_PACKAGES := kmod-usb-core kmod-usb2 kmod-usb-storage
+endef
+LEGACY_DEVICES += RS_WR818_16M
+
 define LegacyDevice/MZKW300NH
   DEVICE_TITLE := Planex MZK-W300NH
 endef
