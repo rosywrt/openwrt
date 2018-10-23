@@ -1,13 +1,20 @@
 --- a/block.c
 +++ b/block.c
-@@ -887,8 +887,8 @@ static int handle_mount(const char *sour
+@@ -885,7 +885,7 @@ static int handle_mount(const char *sour
  	    err = -1;
  	    errno = ENODEV;
  	} else
 -	    err = mount(source, target, fstype, m ? m->flags : 0,
--	            (m && m->options) ? m->options : "");
-+	    err = mount(source, target, fstype, m ? m->flags : (~MS_RDONLY | MS_NOATIME | MS_NODIRATIME),
-+	            (m && m->options) ? m->options : "rw,noatime,nodiratime");
++	    err = mount(source, target, fstype, m ? m->flags : (MS_NOATIME | MS_NODIRATIME),
+ 	            (m && m->options) ? m->options : "");
  
  	/* Requested file system type is not available in kernel,
- 	   attempt to call mount helper. */
+@@ -923,7 +923,7 @@ static int handle_mount(const char *sour
+ 		}
+ 
+ 		/* ... and now finally invoke the external mount program */
+-		err = exec_mount(source, target, fstype, mount_opts);
++		err = exec_mount(source, target, fstype, mount_opts ? mount_opts : "noatime,nodiratime,");
+ 	}
+ 
+ 	return err;
