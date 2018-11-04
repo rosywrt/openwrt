@@ -13,5 +13,4 @@ case $ACTION in
 	add) samba_add_section $DEVNAME;;
 	remove) samba_delete_section $DEVNAME;;
 esac
-uci commit samba
-/etc/init.samba restart
+uci commit samba && /etc/init.d/samba restart
