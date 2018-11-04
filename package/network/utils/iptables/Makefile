@@ -482,7 +482,7 @@ $(call Package/iptables/Default)
   CATEGORY:=Libraries
   TITLE:=IPv6 firewall - shared libiptc library
   ABI_VERSION:=$(PKG_VERSION)
-  DEPENDS:=+libxtables
+  DEPENDS:=@IPV6 +libxtables
 endef
 
 define Package/libxtables
