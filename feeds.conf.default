@@ -1,4 +1,5 @@
 src-git packages https://github.com/rosywrt/packages.git;openwrt-18.06
 src-git luci https://github.com/rosywrt/luci.git;openwrt-18.06
+src-git rosy https://github.com/rosywrt/luci-theme-rosy.git;openwrt-18.06
 src-git routing https://gitee.com/rosywrt/routing.git;openwrt-18.06
 src-git telephony https://gitee.com/rosywrt/telephony.git;openwrt-18.06
